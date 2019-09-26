@@ -5,15 +5,7 @@ from ackermann_msgs.msg import AckermannDriveStamped
 
 ack_publisher = None
 
-def drive(steer_val, car_run_speed):
-  global ack_publisher
-  ack_msg = AckermannDriveStamped()
-  ack_msg.drive.steering_angle = steer_val
-  ack_msg.drive.speed = car_run_speed
-  ack_publisher.publish(ack_msg)
-
-rospy.init_node('motor_send_node')
-ack_publisher = rospy.Publisher('/ackermann_cmd_mux/input/teleop', AckermannDriveStamped, queue_size=1)
+# TODO
 
 while not rospy.is_shutdown():
   for straight_cnt in range(100): 
