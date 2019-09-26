@@ -5,12 +5,7 @@ from sensor_msgs.msg import LaserScan
 
 ranges_list = []
 
-def callback(data):
-  global ranges_list
-  ranges_list = data.ranges
-
-rospy.init_node('Node_Name')
-rospy.Subscriber("/scan", LaserScan, callback, queue_size = 1)
+# TODO
 
 time.sleep(3) 
 
