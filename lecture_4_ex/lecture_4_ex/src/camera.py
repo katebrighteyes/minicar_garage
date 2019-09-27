@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 
+
 import cv2, rospy, time
 import numpy as np
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 
+
 bridge = CvBridge()
+
+cv_image = np.empty(shape=[0])
 
 def img_callback(img_data):
   global bridge
@@ -15,12 +19,19 @@ def img_callback(img_data):
 rospy.init_node('Camera_receive_node')
 rospy.Subscriber("/usb_cam/image_raw/", Image, img_callback)
 
+
 time.sleep(1.5)
+
 
 while not rospy.is_shutdown():
   cv2.imshow('original', cv_image)
 
+
   if cv2.waitKey(1) & 0Xff == ord('q'):
-    break
+     break
+
 
 cv2.destroyAllWindows()
+
+
+
