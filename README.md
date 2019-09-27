@@ -1,5 +1,6 @@
-BLCD_tools
+BLDC_tools
 
+# Run Each after editing the file on pdf
 roslaunch razor_imu_9dof razor-pub-and-display.launch
 
 
