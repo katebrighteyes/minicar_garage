@@ -11,6 +11,12 @@ ack_publisher = None
 cv_image = np.empty(shape=[0])
 
 # TODO 1 drive function
+def drive(steer_val, car_run_speed):
+  global ack_publisher
+  ack_msg = AckermannDriveStamped()
+  ack_msg.drive.steering_angle = steer_val
+  ack_msg.drive.speed = car_run_speed
+  ack_publisher.publish(ack_msg)
 
 video_path = str(rospkg.RosPack().get_path('drive_ex')) + "/video/1.avi"
 cap = cv2.VideoCapture(video_path)
@@ -18,6 +24,8 @@ cap = cv2.VideoCapture(video_path)
 rospy.init_node('go_video')
 
 # TODO 2 ack_publisher
+ack_publisher = rospy.Publisher('/ackermann_cmd_mux/input/teleop', AckermannDriveStamped, queue_size=1)
+
 
 brightness = 60
 
@@ -46,6 +54,21 @@ while not rospy.is_shutdown():
     continue
 
 # TODO 3 opencv2 process part
+  roi_frame = cv_image[430:450, 0:width]
+  roi_hsv = cv2.cvtColor(roi_frame, cv2.COLOR_BGR2HSV)
+  lower_white = np.array([0,0,brightness], dtype=np.uint8)
+  upper_white = np.array([131,255,255], dtype=np.uint8)
+  hsv_line = cv2.inRange(roi_hsv, lower_white, upper_white)
+  view = cv2.cvtColor(hsv_line, cv2.COLOR_GRAY2BGR)
+  rpos = 0
+
+  for rcol in range(rpos_offset, 640):
+    detect_area = hsv_line[line_height_offset - rec_height: line_height_offset, (rcol - 1) : (rcol - 1) + rec_width]
+    nonzero = cv2.countNonZero(detect_area)
+
+    if nonzero > thresh_line_pixel_cnt:
+      rpos = (rcol - 1)
+      break
 
   if x_location == None:
     r_center = rpos
