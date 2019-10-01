@@ -11,12 +11,7 @@ ack_publisher = None
 cv_image = np.empty(shape=[0])
 
 # TODO 1 drive function
-def drive(steer_val, car_run_speed):
-  global ack_publisher
-  ack_msg = AckermannDriveStamped()
-  ack_msg.drive.steering_angle = steer_val
-  ack_msg.drive.speed = car_run_speed
-  ack_publisher.publish(ack_msg)
+
 
 video_path = str(rospkg.RosPack().get_path('drive_ex')) + "/video/1.avi"
 cap = cv2.VideoCapture(video_path)
@@ -24,7 +19,7 @@ cap = cv2.VideoCapture(video_path)
 rospy.init_node('go_video')
 
 # TODO 2 ack_publisher
-ack_publisher = rospy.Publisher('/ackermann_cmd_mux/input/teleop', AckermannDriveStamped, queue_size=1)
+
 
 
 brightness = 60
