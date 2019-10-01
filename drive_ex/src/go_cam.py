@@ -27,7 +27,7 @@ def drive(steer_val, car_run_speed):
 
 # TODO
 
-ack_publisher = rospy.Publisher('/ackermann_cmd_mux/input/teleop', AckermannDriveStamped, queue_size=1)
+
 
 brightness = 60
 
