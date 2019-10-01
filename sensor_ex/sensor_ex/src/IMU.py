@@ -6,12 +6,7 @@ from diagnostic_msgs.msg import DiagnosticArray, DiagnosticStatus, KeyValue
 imu_data = None
 
 #TODO
-def callback(data):
-  global imu_data
-  imu_data = data.status[0].values
 
-rospy.init_node('IMU_receive_node')
-rospy.Subscriber("/diagnostics", DiagnosticArray, callback, queue_size = 1)
 
 
 time.sleep(15)
