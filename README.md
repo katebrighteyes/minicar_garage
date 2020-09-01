@@ -1,12 +1,15 @@
-BLCD_tools
+# 목차
 
-roslaunch razor_imu_9dof razor-pub-and-display.launch
+ROS 소프트웨어 플랫폼(1장)
 
+ROS 중요 컨셉, 명령어, 도구(2~6장)
 
-roslaunch sensor_ex IMU.launch
+ROS 기본 프로그래밍(7장) (토픽 서비스, 액션서비스)
 
-roslaunch sensor_ex lidar.launch
+ROS 센서 프로그래밍(8장) (자이카 기반 : lidar imu, opencv, camera)
 
-roslaunch sensor_ex motor.launch
+YOLO darknet 리뷰
 
-roslaunch sensor_ex camera.launch
+darknet_ros
+
+slam, navigation 시뮬레이션 (11장)
