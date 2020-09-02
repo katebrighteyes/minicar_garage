@@ -13,3 +13,5 @@ YOLO darknet 리뷰
 darknet_ros
 
 slam, navigation 시뮬레이션 (11장)
+
+https://github.com/robotpilot/ros-seminar
