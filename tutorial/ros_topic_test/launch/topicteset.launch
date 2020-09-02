@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="ros_topic_test" type="topic_publisher" name="topic_publisher"/>
+    <node pkg="ros_topic_test" type="topic_subscriber" name="topic_subscriber" output="screen"/>
+</launch>
