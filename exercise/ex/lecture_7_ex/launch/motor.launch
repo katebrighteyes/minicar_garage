@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find lecture_7_ex)/launch/include/vesc.launch"/>
+  <node pkg="lecture_7_ex" type="motor.py" name="motor_send_node" output="screen" />
+</launch>
