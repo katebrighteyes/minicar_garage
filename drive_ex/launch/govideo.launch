@@ -1,4 +1,0 @@
-<launch>
-  <include file="$(find drive_ex)/launch/include/vesc.launch"/>
-  <node pkg="drive_ex" type="go_video.py" name="go_video" output="screen"/>
-</launch>
