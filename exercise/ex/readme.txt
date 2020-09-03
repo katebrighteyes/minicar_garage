@@ -42,3 +42,26 @@ ranges_list = []
   if ranges_list[89] <= 1:
     rospy.loginfo("WARNING !!! distance : {}".format(ranges_list[89]))
 
+----------------------
+======================
+yolo_ros
+
+1. launch 파일
+  <node pkg="yolo_ros" type="yolo_steering.py" name="yolo_xycar" output="screen" />
+  
+2. python 파일의 TODO
+#TODO 1
+    rospy.Subscriber('/darknet_ros/bounding_boxes', BoundingBoxes, callback)
+#TDDO 2
+        for i in range(len(boxes.bounding_boxes)):
+            if boxes.bounding_boxes[i].Class == "person":
+                nobody = False
+
+        if nobody:
+            drive(0, 1)
+	    else:
+		    drive(0,0)
+	    print "stop"
+
+  
+
