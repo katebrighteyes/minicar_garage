@@ -1,3 +1,7 @@
+cd ~/catkin_ws/src
+
+catkin_create_pkg lecture_7_ex std_msgs rospy
+
 < camera.py >
 
 #TODO 1 
