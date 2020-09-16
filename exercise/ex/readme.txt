@@ -51,7 +51,7 @@ ranges_list = []
 yolo_ros
 
 1. launch 파일
-  <node pkg="yolo_ros" type="yolo_steering.py" name="yolo_xycar" output="screen" />
+  <node pkg="yolo_ros" type="yolo_car.py" name="yolo_xycar" output="screen" />
   
 2. python 파일의 TODO
 #TODO 1
